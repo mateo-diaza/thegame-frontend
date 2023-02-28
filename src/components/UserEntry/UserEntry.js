@@ -31,13 +31,16 @@ export const UserEntry = () => {
     }
 
     return(
-        <div  className="user-entry">
+        <div className="user-entry">
             <h4>Identifícate</h4>
-            <div className="user-entry-div">
-                <form  className="user-entry-form" onSubmit={e => handleSubmit(e)}>
-                    <input id="input" type="text" value={userName} onChange={e => setUsername(e.target.value)} placeholder="Username"/>
-                    <input id="input" type="text" value={firstName} onChange={e => setFirstname(e.target.value)} placeholder="Firstname"/>
-                    <input id="input" type="text" value={lastName} onChange={e => setLastname(e.target.value)} placeholder="Lastname"/>
+            <div>
+                <form onSubmit={e => handleSubmit(e)}>
+                    <input id="input" type="text" value={userName} onChange={e => setUsername(e.target.value)}
+                           placeholder="Username"/>
+                    <input id="input" type="text" value={firstName} onChange={e => setFirstname(e.target.value)}
+                           placeholder="Firstname"/>
+                    <input id="input" type="text" value={lastName} onChange={e => setLastname(e.target.value)}
+                           placeholder="Lastname"/>
                     <button type="submit" className="user-entry-form-button">Submit</button>
                 </form>
             </div>

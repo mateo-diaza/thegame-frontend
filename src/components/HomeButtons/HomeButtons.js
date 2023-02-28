@@ -19,7 +19,7 @@ export const HomeButtons = () => {
     }
 
     return (
-        <div className="nav-buttons">
+        <div className="home-buttons">
             <nav>
                 <button type="button" onClick={() => goHome()}><strong>Home</strong></button>
                 <button type="button" onClick={() => handleDashboard()}><strong>Dashboard</strong></button>

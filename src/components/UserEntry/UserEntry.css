@@ -1,20 +1,57 @@
-.user-entry-div {
-    text-align: center;
-    font-weight: bold;
-    margin: 0 35% 0 35%;
+.user-entry {
+    background-color: #DDDDDD;
+    border-radius: 5px;
+    margin: 0 30% 0 30%;
+    text-align: left;
 }
 
-.user-entry-form {
+.user-entry h4 {
+    border-radius: 5px;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background-color: #607D8B;
+}
+
+.user-entry div {
+    margin: 0 1em 0 1em;
+}
+
+.user-entry form {
     display: flex;
     flex-flow: column;
-    text-align: center;
-    margin: 1em;
-}
-
-button {
-    width: 10em;
+    text-align: left;
+    font-size: small;
+    padding: 1em;
 }
 
 .user-entry-form-button {
+    height: 30px;
+    width: 5em;
     margin: 0;
+    padding: 5px 0 5px 0;
+    border: none;
+    border-radius: 0;
+}
+
+.user-entry-form-button:hover {
+    background-color: #607D8B;
+}
+
+#input {
+    padding: 3px;
+    margin: 2px 2px 10px;
+    border: 0;
+    border-bottom: solid #607D8B 2px;
+    outline: 0;
+    background-color: #EEEEEE;
+}
+
+#input:hover {
+    border-bottom: #ff8722 solid 2px;
+}
+
+#input:focus {
+    border-bottom: #2273e3 solid 2px;
 }
