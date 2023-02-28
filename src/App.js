@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import {MainPage} from "./components/MainPage/MainPage";
+import {HomeButtons} from "./components/HomeButtons/HomeButtons";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <header className="App-header">
+          <h1>The Game Proyect</h1>
+        </header>
+        <HomeButtons/>
+        <hr/>
+        <MainPage/>
+        <hr/>
+        <footer className="App-footer">
+          <p>
+            Created by Mateo Díaz - mateodiazallegue@gmail.com
+          </p>
+        </footer>
+      </div>
   );
 }
 

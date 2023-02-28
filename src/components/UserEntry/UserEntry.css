@@ -1,0 +1,20 @@
+.user-entry-div {
+    text-align: center;
+    font-weight: bold;
+    margin: 0 35% 0 35%;
+}
+
+.user-entry-form {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    margin: 1em;
+}
+
+button {
+    width: 10em;
+}
+
+.user-entry-form-button {
+    margin: 0;
+}
