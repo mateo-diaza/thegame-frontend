@@ -1,16 +1,19 @@
 button {
-    padding: 1rem;
+    padding: 0.5rem;
     text-decoration: none;
-    margin: 30px 20px 20px 20px;
+    margin: 30px 10px 10px 10px;
     display: inline-block;
     background-color: #e8e8e8;
-    color: #3d3d3d;
+    border: 3px solid #607D8B;
+    color: #607D8B;
     border-radius: 4px;
+    min-width: min-content;
 }
 
 button:hover {
     color: white;
-    background-color: #42545C;
+    background-color: #607D8B;
+    border: none;
 }
 
 button:active {

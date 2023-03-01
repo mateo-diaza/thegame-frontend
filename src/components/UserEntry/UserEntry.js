@@ -1,7 +1,10 @@
 import './UserEntry.css'
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 export const UserEntry = () => {
+
+    const navigate = useNavigate();
 
     const [userName, setUsername] = useState('');
     const [firstName, setFirstname] = useState('');
@@ -27,21 +30,32 @@ export const UserEntry = () => {
             headers:{
                 'Content-Type': 'application/json'
             }
-        }).catch(error => console.error('Error:', error))
+        }).then(() => {
+            navigate('/dashboard');
+        }).catch(error => {
+            console.error('Error:', error);
+            alert(error);
+        })
+
+        setUsername('');
+        setFirstname('');
+        setLastname('');
     }
 
     return(
         <div className="user-entry">
-            <h4>Identifícate</h4>
+            <div className="header">
+                <h4>Identifícate</h4>
+            </div>
             <div>
                 <form onSubmit={e => handleSubmit(e)}>
                     <input id="input" type="text" value={userName} onChange={e => setUsername(e.target.value)}
-                           placeholder="Username"/>
+                           placeholder="User Name"/>
                     <input id="input" type="text" value={firstName} onChange={e => setFirstname(e.target.value)}
-                           placeholder="Firstname"/>
+                           placeholder="First Name"/>
                     <input id="input" type="text" value={lastName} onChange={e => setLastname(e.target.value)}
-                           placeholder="Lastname"/>
-                    <button type="submit" className="user-entry-form-button">Submit</button>
+                           placeholder="Last Name"/>
+                    <button type="submit" className="user-entry-form-button"><strong>Submit</strong></button>
                 </form>
             </div>
         </div>
