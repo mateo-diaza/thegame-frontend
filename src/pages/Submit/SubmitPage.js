@@ -1,7 +1,7 @@
-import './Submit.css'
+import './SubmitPage.css'
 import React from "react";
 
-export const Submit = () => {
+export const SubmitPage = () => {
 
     return(
         <div>

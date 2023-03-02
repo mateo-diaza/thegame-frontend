@@ -1,18 +1,18 @@
 import './MainPage.css'
-import {Dashboard} from "../Dashboard/Dashboard";
-import {Submit} from "../Submit/Submit";
+import {Dashboard} from "../../components/Dashboard/Dashboard";
+import {SubmitPage} from "../Submit/SubmitPage";
 import {Route, Routes} from "react-router-dom";
 import React from "react";
-import {Home} from "../Home/Home";
+import {HomePage} from "../HomePage/HomePage";
 
 export const MainPage = () => {
 
     return (
         <div className="main-page">
             <Routes>
-                <Route path="/*" element={<Home/>}/>
+                <Route path="/*" element={<HomePage/>}/>
                 <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="/submit" element={<Submit/>}/>
+                <Route path="/submit" element={<SubmitPage/>}/>
             </Routes>
         </div>
     );

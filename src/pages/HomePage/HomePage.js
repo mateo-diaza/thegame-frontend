@@ -1,8 +1,10 @@
-import './Home.css'
+import './HomePage.css'
 import React from "react";
-import {UserEntry} from "../UserEntry/UserEntry";
+import {Route, Routes} from "react-router-dom";
+import {SignUp} from "./pages/SignUp/SignUp";
+import {LogIn} from "./pages/LogIn/LogIn";
 
-export const Home = () => {
+export const HomePage = () => {
     return(
         <div className="home-div">
             <p className="description">
@@ -18,7 +20,10 @@ export const Home = () => {
                 {/*</ul>*/}
                 {/*Espero que os guste la idea y... solo una última cosa... <strong>Perdí ;D</strong>*/}
             </p>
-            <UserEntry/>
+            <Routes>
+                <Route path="/*" element={<SignUp/>}/>
+                <Route path="/login" element={<LogIn/>}/>
+            </Routes>
         </div>
     );
 }

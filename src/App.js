@@ -1,5 +1,5 @@
 import './App.css';
-import {MainPage} from "./components/MainPage/MainPage";
+import {MainPage} from "./pages/MainPage/MainPage";
 import {HomeButtons} from "./components/HomeButtons/HomeButtons";
 
 function App() {

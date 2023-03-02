@@ -13,7 +13,6 @@ button {
 button:hover {
     color: white;
     background-color: #607D8B;
-    border: none;
 }
 
 button:active {
