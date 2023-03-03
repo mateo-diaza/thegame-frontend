@@ -21,7 +21,8 @@ export const HomePage = () => {
                 {/*Espero que os guste la idea y... solo una última cosa... <strong>Perdí ;D</strong>*/}
             </p>
             <Routes>
-                <Route path="/*" element={<SignUp/>}/>
+                <Route path="/" element={<SignUp/>}/>
+                <Route path="/signup" element={<SignUp/>}/>
                 <Route path="/login" element={<LogIn/>}/>
             </Routes>
         </div>

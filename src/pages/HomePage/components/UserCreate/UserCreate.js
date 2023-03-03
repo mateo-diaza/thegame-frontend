@@ -1,13 +1,15 @@
-import './UserEntry.css'
+import './UserCreate.css'
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
-export const UserEntry = () => {
+export const UserCreate = () => {
 
     const navigate = useNavigate();
 
     const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstname] = useState('');
+    const [lastName, setLastname] = useState('');
 
     const [userEntrySuccess, setUserEntrySuccess] = useState(false);
 
@@ -44,10 +46,14 @@ export const UserEntry = () => {
 
         const body = {
             userName: userName,
-            password: password
+            password: password,
+            firstName: firstName,
+            lastName: lastName,
+            crowns: 0,
+            totalLoses: 0
         }
 
-        fetch('http://localhost:8080/users/login', {
+        fetch('http://localhost:8080/users/signup', {
             method: 'POST',
             body: JSON.stringify(body), // data can be `string` or {object}!
             headers:{
@@ -70,10 +76,12 @@ export const UserEntry = () => {
 
         setUsername('');
         setPassword('');
+        setFirstname('');
+        setLastname('');
     }
 
     return(
-        <div className="user-entry">
+        <div className="user-create">
             <div className="header">
                 <h4>Who are you?</h4>
             </div>
@@ -83,7 +91,11 @@ export const UserEntry = () => {
                            placeholder="User Name"/>
                     <input id="input" type="password" value={password} onChange={e => setPassword(e.target.value)}
                            placeholder="Password"/>
-                    <button type="submit" className="user-entry-form-button"><strong>Submit</strong></button>
+                    <input id="input" type="text" value={firstName} onChange={e => setFirstname(e.target.value)}
+                           placeholder="First Name"/>
+                    <input id="input" type="text" value={lastName} onChange={e => setLastname(e.target.value)}
+                           placeholder="Last Name"/>
+                    <button type="submit" className="user-create-form-button"><strong>Submit</strong></button>
                 </form>
             </div>
         </div>
