@@ -28,9 +28,6 @@ export const UserEntry = () => {
             const userJson = await response.json();
             const userId = userJson.id;
             const username = userJson.userName;
-            console.log(userJson);
-            console.log(`El id de usuario es: ${userId}`);
-            console.log(`El nombre de usuario es: ${username}`);
             onSuccess(userId, username);
             return;
         }
@@ -69,7 +66,6 @@ export const UserEntry = () => {
                     id: id,
                     username: username
                 });
-                console.log('Llega a aquí');
                 navigate('/leagues');
             }, (payload) => {
                 alert(payload);
