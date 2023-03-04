@@ -48,7 +48,7 @@
     background-color: #607D8B;
 }
 
-#input {
+input {
     border-radius: 4px;
     height: 2em;
     padding: 3px 3px 3px 8px;
@@ -59,10 +59,10 @@
     background-color: #EEEEEE;
 }
 
-#input:hover {
+input:hover {
     border-bottom: #ff8722 solid 2px;
 }
 
-#input:focus {
+input:focus {
     border-bottom: #2273e3 solid 2px;
 }

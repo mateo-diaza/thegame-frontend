@@ -1,6 +1,7 @@
 import './UserEntry.css'
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {UserDispatchContext} from "../../../../components/UserContext/UserContext";
 
 export const UserEntry = () => {
 
@@ -9,7 +10,7 @@ export const UserEntry = () => {
     const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const [userEntrySuccess, setUserEntrySuccess] = useState(false);
+    const setUserDetails = useContext(UserDispatchContext);
 
     const isJson = response => {
 
@@ -19,9 +20,18 @@ export const UserEntry = () => {
 
     }
 
-    const handleResponse = (response, onSuccess, onErrors) => {
+    const handleResponse = async (response, onSuccess, onErrors) => {
         if (response.ok) {
-            onSuccess(response);
+            if (!isJson(response)) {
+                return;
+            }
+            const userJson = await response.json();
+            const userId = userJson.id;
+            const username = userJson.userName;
+            console.log(userJson);
+            console.log(`El id de usuario es: ${userId}`);
+            console.log(`El nombre de usuario es: ${username}`);
+            onSuccess(userId, username);
             return;
         }
 
@@ -54,15 +64,16 @@ export const UserEntry = () => {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            handleResponse(response, () => {
-                navigate('/dashboard');
+            handleResponse(response, (id, username) => {
+                setUserDetails({
+                    id: id,
+                    username: username
+                });
+                console.log('Llega a aquí');
+                navigate('/leagues');
             }, (payload) => {
                 alert(payload);
             });
-            // TODO esto está mal, REVISAR
-            // const id = response.body.id;
-            // const path = `/leagues/${id}`;
-            // navigate('/dashboard');
         }).catch(error => {
             console.error('Error:', error);
             alert(error);
@@ -79,9 +90,9 @@ export const UserEntry = () => {
             </div>
             <div>
                 <form onSubmit={e => handleSubmit(e)}>
-                    <input id="input" type="text" value={userName} onChange={e => setUsername(e.target.value)}
+                    <input type="text" value={userName} onChange={e => setUsername(e.target.value)}
                            placeholder="User Name"/>
-                    <input id="input" type="password" value={password} onChange={e => setPassword(e.target.value)}
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                            placeholder="Password"/>
                     <button type="submit" className="user-entry-form-button"><strong>Submit</strong></button>
                 </form>

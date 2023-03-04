@@ -1,6 +1,7 @@
 import './UserCreate.css'
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {UserDispatchContext} from "../../../../components/UserContext/UserContext";
 
 export const UserCreate = () => {
 
@@ -11,7 +12,7 @@ export const UserCreate = () => {
     const [firstName, setFirstname] = useState('');
     const [lastName, setLastname] = useState('');
 
-    const [userEntrySuccess, setUserEntrySuccess] = useState(false);
+    const setUserDetails = useContext(UserDispatchContext);
 
     const isJson = response => {
 
@@ -21,9 +22,18 @@ export const UserCreate = () => {
 
     }
 
-    const handleResponse = (response, onSuccess, onErrors) => {
+    const handleResponse = async (response, onSuccess, onErrors) => {
         if (response.ok) {
-            onSuccess(response);
+            if (!isJson(response)) {
+                return;
+            }
+            const userJson = await response.json();
+            const userId = userJson.id;
+            const username = userJson.userName;
+            console.log(userJson);
+            console.log(`El id de usuario es: ${userId}`);
+            console.log(`El nombre de usuario es: ${username}`);
+            onSuccess(userId, username);
             return;
         }
 
@@ -60,15 +70,16 @@ export const UserCreate = () => {
                 'Content-Type': 'application/json'
             }
         }).then((response) => {
-            handleResponse(response, () => {
-                navigate('/dashboard');
+            handleResponse(response, (id, username) => {
+                setUserDetails({
+                    id: id,
+                    username: username
+                });
+                navigate('/leagues');
+                console.log('Llega a aquí');
             }, (payload) => {
                 alert(payload);
             });
-            // TODO esto está mal, REVISAR
-            // const id = response.body.id;
-            // const path = `/leagues/${id}`;
-            // navigate('/dashboard');
         }).catch(error => {
             console.error('Error:', error);
             alert(error);
@@ -87,13 +98,13 @@ export const UserCreate = () => {
             </div>
             <div>
                 <form onSubmit={e => handleSubmit(e)}>
-                    <input id="input" type="text" value={userName} onChange={e => setUsername(e.target.value)}
+                    <input type="text" value={userName} onChange={e => setUsername(e.target.value)}
                            placeholder="User Name"/>
-                    <input id="input" type="password" value={password} onChange={e => setPassword(e.target.value)}
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                            placeholder="Password"/>
-                    <input id="input" type="text" value={firstName} onChange={e => setFirstname(e.target.value)}
+                    <input type="text" value={firstName} onChange={e => setFirstname(e.target.value)}
                            placeholder="First Name"/>
-                    <input id="input" type="text" value={lastName} onChange={e => setLastname(e.target.value)}
+                    <input type="text" value={lastName} onChange={e => setLastname(e.target.value)}
                            placeholder="Last Name"/>
                     <button type="submit" className="user-create-form-button"><strong>Submit</strong></button>
                 </form>
