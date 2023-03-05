@@ -1,0 +1,39 @@
+.league-detail {
+    background-color: #EEEEEE;
+    margin: 0 15%;
+    padding: 1em 3em;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+
+.league-detail h4 {
+    text-align: start;
+    margin: 10px;
+}
+
+.league-detail h3 {
+    text-align: center;
+    background-color: #607D8B;
+    color: white;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.league-detail ul {
+    margin: 0;
+}
+
+.add-player form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 4em;
+}
+
+.add-player button {
+    margin: 0;
+    padding: 0;
+    height: 2.5em;
+    border: none;
+    width: 6em;
+}

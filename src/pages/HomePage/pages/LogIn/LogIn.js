@@ -8,7 +8,7 @@ export const LogIn = () => {
             <h2>Log In</h2>
             <UserEntry/>
             <span className="user-link">
-                Do you not have an account?
+                Don't have an account?
                 <Link to="/signup">
                     Sign Up
                 </Link>

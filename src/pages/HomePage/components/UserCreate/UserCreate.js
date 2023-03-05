@@ -2,6 +2,7 @@ import './UserCreate.css'
 import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {UserDispatchContext} from "../../../../components/UserContext/UserContext";
+import {appFetch, config, isJson} from "../../../../components/utils/FetchService";
 
 export const UserCreate = () => {
 
@@ -13,39 +14,6 @@ export const UserCreate = () => {
     const [lastName, setLastname] = useState('');
 
     const setUserDetails = useContext(UserDispatchContext);
-
-    const isJson = response => {
-
-        const contentType = response.headers.get("content-type");
-
-        return contentType && contentType.indexOf("application/json") !== -1;
-
-    }
-
-    const handleResponse = async (response, onSuccess, onErrors) => {
-        if (response.ok) {
-            if (!isJson(response)) {
-                return;
-            }
-            const userJson = await response.json();
-            const userId = userJson.id;
-            const username = userJson.userName;
-            onSuccess(userId, username);
-            return;
-        }
-
-        if (response.status >= 400 && response.status <= 500) {
-            if (!isJson(response)) {
-                return;
-            }
-
-            response.json().then(payload => {
-                if (payload.globalError || payload.fieldErrors) {
-                    onErrors(payload.globalError);
-                }
-            });
-        }
-    }
 
     const handleSubmit = (e) => {
 
@@ -60,26 +28,22 @@ export const UserCreate = () => {
             totalLoses: 0
         }
 
-        fetch('http://localhost:8080/users/signup', {
-            method: 'POST',
-            body: JSON.stringify(body), // data can be `string` or {object}!
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => {
-            handleResponse(response, (id, username) => {
+        appFetch('http://localhost:8080/users/signup', config('POST', body),
+            async (response) => {
+                if (!isJson(response)) {
+                    return;
+                }
+                const userJson = await response.json();
+                const userId = userJson.id;
+                const username = userJson.userName;
                 setUserDetails({
-                    id: id,
+                    id: userId,
                     username: username
                 });
                 navigate('/leagues');
             }, (payload) => {
                 alert(payload);
             });
-        }).catch(error => {
-            console.error('Error:', error);
-            alert(error);
-        })
 
         setUsername('');
         setPassword('');

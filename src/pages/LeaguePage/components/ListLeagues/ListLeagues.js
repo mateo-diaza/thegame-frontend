@@ -1,35 +1,40 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import {appFetch, config, isJson} from "../../../../components/utils/FetchService";
+import {useNavigate} from "react-router-dom";
 
 export const ListLeagues = ({user}) => {
 
+    const navigate = useNavigate();
+
     const [leagues, setLeagues] = useState(null);
 
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
-        fetch(`http://localhost:8080/leagues/${user.id}`)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+        appFetch(`http://localhost:8080/leagues-of-user/${user.id}`, config('GET'),
+            async (response) => {
+                if (!isJson(response)) {
+                    return;
                 }
-                throw response;
-            }).then(leagues => {
-            setLeagues(leagues);
-        }).catch(error => {
-            alert(error);
-        }).finally(() => {
-            setLoading(false);
-        })
+                const leaguesJson = await response.json();
+                setLeagues(leaguesJson);
+            }, (payload) => {
+                alert(payload);
+            });
     }, [user.id]);
 
-    if (loading) return "Loading...";
+    const handleLeagueDetail = (id) => {
+        navigate('/leagues/detail-page', {state: {leagueId: id}});
+    }
 
     return (
         <div>
             <h4>Leagues</h4>
             <ul>
-                {leagues.map((league, idx) =>
-                    <li key={idx}>Nombre de liga: {league.name}</li>
+                {leagues && leagues.map((league, idx) =>
+                    <li key={idx}>
+                        <button type="button" onClick={() => handleLeagueDetail(league.id)}>
+                            Nombre de liga: {league.name}
+                        </button>
+                    </li>
                 )}
             </ul>
         </div>

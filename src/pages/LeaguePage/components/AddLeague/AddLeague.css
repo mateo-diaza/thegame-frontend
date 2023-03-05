@@ -1,0 +1,106 @@
+.add-league-entry form {
+    display: flex;
+    flex-flow: column;
+    padding: 0 10px;
+}
+
+.add-league-entry form label {
+    display: flex;
+    flex-flow: column;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.add-league-entry {
+    margin: 0 2em;
+    padding: 1em;
+    border-radius: 0 0 10px 10px;
+    background-color: #DDDDDD;
+}
+
+.add-league-entry .date-input {
+    display: flex;
+    flex-flow: column;
+}
+
+.add-league-entry .date-input input {
+    width: 10em;
+}
+
+.add-league-entry form button {
+    margin: 10px 2px;
+    border: none;
+    height: 4em;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.add-league-entry form button:hover {
+    color: white;
+    background-color: #607D8B;
+}
+
+.players-list {
+    display: flex;
+    flex-flow: column;
+}
+
+.players-input label {
+    margin-bottom: 5px;
+}
+
+.players-input .add-player {
+    width: 6em;
+    border-radius: 30px;
+    margin: 0 0 1em 0;
+}
+
+.players-input .players-list button {
+    color: white;
+    background-color: #607D8B;
+    padding: 0.2em;
+    height: 2.3em;
+    width: 3em;
+    border-radius: 0 5px 5px 0;
+    margin: 0;
+}
+
+.player-list-entry {
+    height: 2em;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin: 0.3em 0;
+}
+
+.players-input .players-entry {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.players-input input {
+    margin: 10px 10px 15px 2px;
+}
+
+.player-list-entry p {
+    margin-left: 0.5em;
+    height: 2em;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.remove-player-button {
+    height: 2em;
+}
+
+.players-input .player-not-exists {
+    border-color: red;
+}
