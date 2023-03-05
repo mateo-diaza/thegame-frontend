@@ -1,0 +1,19 @@
+.list-leagues h3 {
+    margin: 2em 0 0;
+    background-color: white;
+    color: black;
+}
+
+.list-leagues ul {
+    margin: 0;
+}
+
+.list-leagues button {
+    margin: 0.5em;
+    width: 25em;
+    height: 4em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

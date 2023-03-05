@@ -1,15 +1,17 @@
 import './AddLeague.css'
 import React, {useState} from "react";
 import {appFetch, config, isJson} from "../../../../components/utils/FetchService";
+import {useNavigate} from "react-router-dom";
 
 export const AddLeague = () => {
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [player, setPlayer] = useState('');
     const [players, setPlayers] = useState([]);
-    // const [playerExists, setPlayerExists] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,7 +30,9 @@ export const AddLeague = () => {
                     return;
                 }
                 const leagueJson = await response.json();
+                const id = leagueJson.id;
                 const name = leagueJson.name;
+                navigate('/leagues/detail-page', {state: {leagueId: id}});
                 alert(`Liga '${name}' creada correctamente`);
             }, (payload) => {
                 alert(payload);
@@ -40,26 +44,8 @@ export const AddLeague = () => {
         setPlayers([]);
     }
 
-    // const checkPlayerExists = () => {
-    //     appFetch(`http://localhost:8080/users/exists/${player}`, config('GET'),
-    //         async (response) => {
-    //             if (!isJson(response)) {
-    //                 return;
-    //             }
-    //             const userExists = await response.json();
-    //             console.log(userExists);
-    //             setPlayerExists(userExists === true);
-    //         }, (payload) => {
-    //             alert(payload);
-    //         });
-    // }
-
     const handleAddPlayer = () => {
         if (player !== '' && !players.includes(player)) {
-            // checkPlayerExists();
-            // if (playerExists) {
-            //     setPlayers([...players, player]);
-            // }
             setPlayers([...players, player]);
         }
         setPlayer('');
@@ -94,8 +80,6 @@ export const AddLeague = () => {
                             </div>
                         )}
                     </div>
-                    {/*<input className={playerExists ? 'player-exists' : 'player-not-exists'} type="text" value={player} onChange={e => setPlayer(e.target.value)} placeholder="Player username"/>*/}
-                    {/*{!playerExists && <label>This player doesn't exists</label>}*/}
                     <div className="players-entry">
                         <input type="text" value={player} onChange={e => setPlayer(e.target.value)}
                                placeholder="Player username"/>

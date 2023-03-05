@@ -34,7 +34,6 @@ export const LeagueDetailPage = () => {
                 }
                 const leagueJson = await response.json();
                 setLeague(leagueJson);
-                alert(`El usuario '${player}' ha sido añadido a la liga correctamente`);
             }, (payload) => {
                 alert(payload);
             });
@@ -43,17 +42,23 @@ export const LeagueDetailPage = () => {
     }
 
     return(
-        <div>
+        <div className="league-detail-div">
             <h4>League Detail</h4>
+            {league && <h3>{league.name}</h3>}
             <div className="league-detail">
-                {league && <h3>{league.name}</h3>}
                 {league && <h4>Id: {league.id}</h4>}
                 {league && <h4>Start Date: {league.startDate}</h4>}
                 {league && <h4>End Date: {league.endDate}</h4>}
                 <h4>Players:</h4>
                 <ul>
                     {league && league.players.map((p, idx) =>
-                        <li key={idx}>{p}</li>
+                        <li key={idx}>
+                            <p>
+                                Username: {p.userName}<br/>
+                                Score: {p.score}<br/>
+                                Loses: {p.loses}<br/>
+                            </p>
+                        </li>
                     )}
                 </ul>
             </div>

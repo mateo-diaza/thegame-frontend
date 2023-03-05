@@ -29,7 +29,7 @@
 
 .add-league-entry form button {
     margin: 10px 2px;
-    border: none;
+    border: 3px solid;
     height: 4em;
     font-weight: bold;
     border-radius: 20px;
@@ -99,8 +99,4 @@
 
 .remove-player-button {
     height: 2em;
-}
-
-.players-input .player-not-exists {
-    border-color: red;
 }

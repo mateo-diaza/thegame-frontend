@@ -1,3 +1,4 @@
+import './ListLeagues.css'
 import React, { useEffect, useState } from "react";
 import {appFetch, config, isJson} from "../../../../components/utils/FetchService";
 import {useNavigate} from "react-router-dom";
@@ -26,8 +27,8 @@ export const ListLeagues = ({user}) => {
     }
 
     return (
-        <div>
-            <h4>Leagues</h4>
+        <div className="list-leagues">
+            <h3>Leagues</h3>
             <ul>
                 {leagues && leagues.map((league, idx) =>
                     <li key={idx}>

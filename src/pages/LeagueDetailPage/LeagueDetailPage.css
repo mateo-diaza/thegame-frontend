@@ -1,9 +1,8 @@
 .league-detail {
     background-color: #EEEEEE;
     margin: 0 15%;
-    padding: 1em 3em;
-    border-radius: 20px;
-    border: 2px solid white;
+    padding: 1em 2em;
+    border-radius: 0 0 20px 20px;
 }
 
 .league-detail h4 {
@@ -11,12 +10,13 @@
     margin: 10px;
 }
 
-.league-detail h3 {
+.league-detail-div h3 {
     text-align: center;
     background-color: #607D8B;
     color: white;
-    margin: 0;
+    margin: 0 15%;
     padding: 0.5em;
+    border-radius: 20px 20px 0 0;
 }
 
 .league-detail ul {
@@ -26,14 +26,18 @@
 .add-player form {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 4em;
+    justify-content: flex-start;
+    margin: 0 15%;
 }
 
-.add-player button {
-    margin: 0;
+.league-detail-div .add-player form button {
+    margin: 0 0 0 2em;
     padding: 0;
     height: 2.5em;
     border: none;
     width: 6em;
+}
+
+.league-detail-div .add-player form input {
+    margin: 0;
 }
