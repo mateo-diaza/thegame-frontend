@@ -33,7 +33,7 @@ export const ListLeagues = ({user}) => {
                 {leagues && leagues.map((league, idx) =>
                     <li key={idx}>
                         <button type="button" onClick={() => handleLeagueDetail(league.id)}>
-                            Nombre de liga: {league.name}
+                            {league.name}
                         </button>
                     </li>
                 )}

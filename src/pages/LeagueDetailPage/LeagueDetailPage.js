@@ -62,12 +62,14 @@ export const LeagueDetailPage = () => {
                     )}
                 </ul>
             </div>
-            <h4>Add player</h4>
-            <div className="add-player">
-                <form onSubmit={e => handleAddPlayer(e)}>
-                    <input type="text" value={player} onChange={e => setPlayer(e.target.value)} placeholder="Player username"/>
-                    <button type="submit">Add</button>
-                </form>
+            <div className="add-player-div">
+                <h4>Add player</h4>
+                <div className="add-player">
+                    <form onSubmit={e => handleAddPlayer(e)}>
+                        <input type="text" value={player} onChange={e => setPlayer(e.target.value)} placeholder="Player username"/>
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
             </div>
         </div>
     );
