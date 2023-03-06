@@ -4,12 +4,13 @@
 }
 
 .add-league-button {
-    margin: 0 30%;
-    padding: 1em;
+    margin: 0 25%;
+    padding: 0;
     height: 4em;
     border: none;
+    border-radius: 25px;
     background-color: #607D8B;
     color: white;
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 1.2em;
 }
