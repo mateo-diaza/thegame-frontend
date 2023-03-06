@@ -1,0 +1,14 @@
+.description {
+    display: flex;
+    flex-flow: column;
+}
+
+.description ul {
+    list-style-type: square;
+}
+
+.description button {
+    font-size: 1em;
+    font-weight: bold;
+    height: 4em;
+}

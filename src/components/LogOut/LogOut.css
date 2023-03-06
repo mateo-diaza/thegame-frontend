@@ -1,0 +1,11 @@
+.logout-div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 5%;
+}
+
+.logout-div button {
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 30px;
+}

@@ -18,10 +18,15 @@ export const HomeButtons = () => {
         navigate('/');
     }
 
+    const goLogin = () => {
+        navigate('/login');
+    }
+
     return (
         <div className="home-buttons">
             <nav>
                 <button type="button" onClick={() => goHome()}><strong>Home</strong></button>
+                <button type="button" onClick={() => goLogin()}><strong>Identify</strong></button>
                 <button type="button" onClick={() => handleDashboard()}><strong>Dashboard</strong></button>
                 <button type="button" onClick={() => handleSubmit()}><strong>I lost... :(</strong></button>
             </nav>

@@ -27,7 +27,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 15%;
 }
 
 .league-detail-div .add-player-div .add-player form button {
@@ -35,28 +34,47 @@
     padding: 0;
     height: 2.5em;
     border: none;
+    border-radius: 20px;
     width: 6em;
     background-color: white;
 }
 
 .league-detail-div .add-player-div .add-player form button:hover {
-    background-color: #607D8B;
-
+    color: #607D8B;
+    background-color: #DDDDDD;
 }
 
 .league-detail-div .add-player-div .add-player form input {
     background-color: white;
-    margin: 0;
-    width: 8em;
+    margin: 0 0 0 1em;
+    width: 10em;
+    border-radius: 5px;
 }
 
 .add-player-div {
-    background-color: #EEEEEE;
+    background-color: #607D8B;
     padding: 1em;
     margin: 2em 15%;
     border-radius: 20px;
 }
 
+.league-detail-div h2 {
+    text-align: center;
+}
+
+.league-detail-div .add-player-div h4 {
+    color: #607D8B;
+    background-color: white;
+    padding: 0.5em;
+    margin: 0 20% 1em;
+    border-radius: 10px;
+}
+
 .add-player-div h4 {
     margin-top: 0;
+    color: white;
+}
+
+.current-user {
+    font-weight: bold;
 }

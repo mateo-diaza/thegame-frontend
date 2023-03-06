@@ -18,3 +18,10 @@ button:hover {
 button:active {
     background-color: black;
 }
+
+.nav-buttons {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}

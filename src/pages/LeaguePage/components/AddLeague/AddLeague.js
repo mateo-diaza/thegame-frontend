@@ -31,9 +31,7 @@ export const AddLeague = () => {
                 }
                 const leagueJson = await response.json();
                 const id = leagueJson.id;
-                const name = leagueJson.name;
                 navigate('/leagues/detail-page', {state: {leagueId: id}});
-                alert(`Liga '${name}' creada correctamente`);
             }, (payload) => {
                 alert(payload);
             });

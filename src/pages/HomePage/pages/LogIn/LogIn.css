@@ -1,3 +1,11 @@
 .user-link {
     margin: 1em;
 }
+
+.login-div .goback-div {
+    margin: 0;
+}
+
+.login-div .goback-div button {
+    margin: 30px 10px 0 0;
+}
