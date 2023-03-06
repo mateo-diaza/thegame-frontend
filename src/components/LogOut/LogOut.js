@@ -1,12 +1,19 @@
 import './LogOut.css'
-import React from "react";
+import React, {useContext} from "react";
 import {useNavigate} from "react-router-dom";
+import {UserDispatchContext} from "../UserContext/UserContext";
 
 export const LogOut = () => {
 
     const navigate = useNavigate();
 
+    const setUserDetails = useContext(UserDispatchContext);
+
     const handleLogOut = () => {
+        setUserDetails({
+            id: -1,
+            username: 'Not logged'
+        })
         navigate('/');
     }
 

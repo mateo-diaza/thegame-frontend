@@ -6,6 +6,7 @@ import {ListLeagues} from "./components/ListLeagues/ListLeagues";
 import {NotLogged} from "../../components/utils/NotLogged";
 import {LogOut} from "../../components/LogOut/LogOut";
 import {GoBack} from "../../components/GoBack/GoBack";
+import {SubmitLost} from "../../components/SubmitLost/SubmitLost";
 
 export const LeaguePage = () => {
 
@@ -20,6 +21,7 @@ export const LeaguePage = () => {
                 <GoBack/>
                 {logged && <LogOut/>}
             </div>
+            {logged && <SubmitLost/>}
             {logged && <ListLeagues user={userDetails}/>}
             {logged &&
                 <div className="add-league">

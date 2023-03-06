@@ -57,7 +57,6 @@ export const LeagueDetailPage = () => {
             <h2>League Detail</h2>
             {league && <h3>{league.name}</h3>}
             <div className="league-detail">
-                {league && <h4>Id: {league.id}</h4>}
                 {league && <h4>Start Date: {league.startDate}</h4>}
                 {league && <h4>End Date: {league.endDate}</h4>}
                 <h4>Players:</h4>
@@ -65,7 +64,6 @@ export const LeagueDetailPage = () => {
                     {league && league.players.map((p, idx) =>
                         <li key={idx} className={userDetails.username === p.userName ? "current-user" : ""}>
                             <p>
-                                CurrentUser: {userDetails.username}<br/>
                                 Username: {p.userName}<br/>
                                 Score: {p.score}<br/>
                                 Loses: {p.loses}<br/>

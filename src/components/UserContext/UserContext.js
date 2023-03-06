@@ -6,7 +6,7 @@ const UserDispatchContext = createContext(undefined);
 function UserProvider({ children }) {
     const [userDetails, setUserDetails] = useState({
         id: -1,
-        username: "Not logged"
+        username: 'Not logged'
     });
 
     return (
