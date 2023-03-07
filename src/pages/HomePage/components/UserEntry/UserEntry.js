@@ -54,7 +54,7 @@ export const UserEntry = () => {
                            placeholder="User Name"/>
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)}
                            placeholder="Password"/>
-                    <button type="submit" className="user-entry-form-button"><strong>Submit</strong></button>
+                    <button type="submit" className="user-entry-form-button"><strong>Enter</strong></button>
                 </form>
             </div>
         </div>
