@@ -24,7 +24,7 @@ export const AddLeague = () => {
             players: players
         }
 
-        appFetch('http://localhost:8080/leagues', config('POST', body),
+        appFetch('/leagues', config('POST', body),
             async (response) => {
                 if (!isJson(response)) {
                     return;

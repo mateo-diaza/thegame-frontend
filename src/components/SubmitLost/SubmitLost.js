@@ -11,7 +11,7 @@ export const SubmitLost = () => {
 
         e.preventDefault();
 
-        appFetch(`http://localhost:8080/leagues/${userDetail.username}`, config('PUT'),
+        appFetch(`/leagues/${userDetail.username}`, config('PUT'),
             async () => {
                 alert('Su pérdida se ha guardado correctamente :)');
             }, (payload) => {

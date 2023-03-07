@@ -10,7 +10,7 @@ export const ListLeagues = ({user}) => {
     const [leagues, setLeagues] = useState(null);
 
     useEffect(() => {
-        appFetch(`http://localhost:8080/leagues-of-user/${user.id}`, config('GET'),
+        appFetch(`/leagues-of-user/${user.id}`, config('GET'),
             async (response) => {
                 if (!isJson(response)) {
                     return;

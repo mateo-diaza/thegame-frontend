@@ -47,7 +47,7 @@ const handleResponse = async (response, onSuccess, onErrors) => {
 }
 
 export const appFetch = (path, options, onSuccess, onErrors) => {
-    fetch(path, options).then(response => {
+    fetch(`${process.env.REACT_APP_SERVER_URL}${path}`, options).then(response => {
         handleResponse(response, onSuccess, onErrors);
     }).catch(error => {
         console.error('Error:', error);

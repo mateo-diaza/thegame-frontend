@@ -18,7 +18,7 @@ export const LeagueDetailPage = () => {
     const [update, setUpdate] = useState(true);
 
     useEffect(() => {
-        appFetch(`http://localhost:8080/leagues/${location.state.leagueId}`, config('GET'),
+        appFetch(`/leagues/${location.state.leagueId}`, config('GET'),
             async (response) => {
                 if (!isJson(response)) {
                     return;
@@ -34,7 +34,7 @@ export const LeagueDetailPage = () => {
 
         e.preventDefault();
 
-        appFetch(`http://localhost:8080/leagues/${location.state.leagueId}/${player}`, config('PUT'),
+        appFetch(`/leagues/${location.state.leagueId}/${player}`, config('PUT'),
             async (response) => {
                 if (!isJson(response)) {
                     return;

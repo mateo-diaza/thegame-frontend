@@ -28,7 +28,7 @@ export const UserCreate = () => {
             totalLoses: 0
         }
 
-        appFetch('http://localhost:8080/users/signup', config('POST', body),
+        appFetch('/users/signup', config('POST', body),
             async (response) => {
                 if (!isJson(response)) {
                     return;

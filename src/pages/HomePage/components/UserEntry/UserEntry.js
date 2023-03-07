@@ -22,7 +22,7 @@ export const UserEntry = () => {
             password: password
         }
 
-        appFetch('http://localhost:8080/users/login', config('POST', body),
+        appFetch('/users/login', config('POST', body),
             async (response) => {
                 if (!isJson(response)) {
                     return;
