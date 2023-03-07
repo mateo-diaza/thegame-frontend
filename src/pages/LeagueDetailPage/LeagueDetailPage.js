@@ -57,6 +57,12 @@ export const LeagueDetailPage = () => {
             <h2>League Detail</h2>
             {league && <h3>{league.name}</h3>}
             <div className="league-detail">
+                {league && league.players.filter(p => {return p.winner === true}).map((p, idx) =>
+                    <div>
+                        <h3 key={idx}>Winner: {p.userName}</h3>
+                        <h3 key={idx}>Score: {p.score}</h3>
+                    </div>
+                )}
                 {league && <h4>Start Date: {league.startDate}</h4>}
                 {league && <h4>End Date: {league.endDate}</h4>}
                 <h4>Players:</h4>
