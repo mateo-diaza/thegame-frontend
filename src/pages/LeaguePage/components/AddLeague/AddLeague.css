@@ -27,6 +27,11 @@
     width: 10em;
 }
 
+
+.add-league-entry form input {
+    width: 90%;
+}
+
 .add-league-entry form button {
     margin: 10px 2px;
     border: 3px solid;
@@ -52,7 +57,7 @@
 .players-input .add-player {
     width: 6em;
     border-radius: 30px;
-    margin: 0 0 1em 0;
+    margin: 10px 10px 15px;
 }
 
 .players-input .players-list button {
@@ -83,10 +88,12 @@
     margin-top: 10px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .players-input input {
     margin: 10px 10px 15px 2px;
+    width: 60%;
 }
 
 .player-list-entry p {

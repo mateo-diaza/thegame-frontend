@@ -40,34 +40,36 @@
 
 .add-player form {
     display: flex;
-    align-items: center;
+    flex-flow: column;
     justify-content: flex-start;
 }
 
 .league-detail-div .add-player-div .add-player form button {
-    margin: 0 0 0 1em;
+    margin:1em 0 0 0;
     padding: 0;
     height: 2.5em;
     border: none;
     border-radius: 20px;
     width: 6em;
     background-color: white;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .league-detail-div .add-player-div .add-player form button:hover {
-    color: #607D8B;
-    background-color: #DDDDDD;
+    color: white;
+    background-color: #607D8B;
 }
 
 .league-detail-div .add-player-div .add-player form input {
     background-color: white;
-    margin: 0 0 0 1em;
+    margin: 0;
     width: 10em;
     border-radius: 5px;
 }
 
 .add-player-div {
-    background-color: #607D8B;
+    background-color: #DDDDDD;
     padding: 1em;
     margin: 2em 15%;
     border-radius: 20px;
@@ -78,11 +80,12 @@
 }
 
 .league-detail-div .add-player-div h4 {
-    color: #607D8B;
-    background-color: white;
+    color: white;
+    background-color: #607D8B;
     padding: 0.5em;
     margin: 0 20% 1em;
     border-radius: 10px;
+    text-align: center;
 }
 
 .add-player-div h4 {

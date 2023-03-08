@@ -79,7 +79,7 @@ export const LeagueDetailPage = () => {
                 </ul>
             </div>
             <div className="add-player-div">
-                <h4>Add player</h4>
+                <h4>Add Player</h4>
                 <div className="add-player">
                     <form onSubmit={e => handleAddPlayer(e)}>
                         <input type="text" value={player} onChange={e => setPlayer(e.target.value)} placeholder="Player username"/>
