@@ -9,9 +9,11 @@
 }
 
 .list-leagues h3 {
+    padding: 0.5em 1em;
     margin: 0.5em 0;
     background-color: #607D8B;
     color: white;
+    border-radius: 10px;
 }
 
 .list-leagues ul {
