@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 
+const REACT_APP_SERVER_URL = "https://the-game-project-380009.ew.r.appspot.com";
+
 export const isJson = response => {
 
     const contentType = response.headers.get("content-type");
@@ -47,7 +49,7 @@ const handleResponse = async (response, onSuccess, onErrors) => {
 }
 
 export const appFetch = (path, options, onSuccess, onErrors) => {
-    fetch(`${process.env.REACT_APP_SERVER_URL}${path}`, options).then(response => {
+    fetch(`${REACT_APP_SERVER_URL}${path}`, options).then(response => {
         handleResponse(response, onSuccess, onErrors);
     }).catch(error => {
         console.error('Error:', error);
